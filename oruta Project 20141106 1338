@@ -1,0 +1,140 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.0.22-community
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+CREATE DATABASE IF NOT EXISTS DPFCB;
+USE DPFCB;
+
+--
+-- Definition of table `group`
+--
+
+DROP TABLE IF EXISTS `group`;
+CREATE TABLE `group` (
+  `group_name` varchar(45) NOT NULL,
+  PRIMARY KEY  (`group_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `group`
+--
+
+/*!40000 ALTER TABLE `group` DISABLE KEYS */;
+INSERT INTO `group` (`group_name`) VALUES 
+ ('Group1'),
+ ('Group2');
+/*!40000 ALTER TABLE `group` ENABLE KEYS */;
+
+
+--
+-- Definition of table `log`
+--
+
+DROP TABLE IF EXISTS `log`;
+CREATE TABLE `log` (
+  `user` varchar(45) NOT NULL,
+  `filename` varchar(45) NOT NULL,
+  `group` varchar(45) NOT NULL,
+  `status` varchar(45) NOT NULL,
+  `date` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `log`
+--
+
+/*!40000 ALTER TABLE `log` DISABLE KEYS */;
+INSERT INTO `log` (`user`,`filename`,`group`,`status`,`date`) VALUES 
+ ('mani','got.txt','Group1','Updated','2014-10-13 10:26:59'),
+ ('nadanapathy','readme.txt','Group2','Upload','2014-11-06 11:08:26'),
+ ('nadanapathy','readme.txt','Group2','Upload','2014-11-06 11:10:02'),
+ ('nadanapathy','readme.txt','Group2','Download','2014-11-06 11:11:04'),
+ ('nadanapathy','readme.txt','Group2','Deleted','2014-11-06 11:46:57'),
+ ('nadanapathy','readme.txt','Group2','Upload','2014-11-06 11:57:26'),
+ ('nadanapathy','readme.txt','Group2','Updated','2014-11-06 11:58:15'),
+ ('nadana','readme.txt','Group2','Upload','2014-11-06 13:23:47'),
+ ('nadana','readme.txt','Group2','Download','2014-11-06 13:24:07'),
+ ('nadana','readme.txt','Group2','Download','2014-11-06 13:24:51'),
+ ('nadana','readme.txt','Group2','Updated','2014-11-06 13:25:47'),
+ ('nadanapathy','readme.txt','Group2','Upload','2014-11-06 13:32:13');
+/*!40000 ALTER TABLE `log` ENABLE KEYS */;
+
+
+--
+-- Definition of table `reg`
+--
+
+DROP TABLE IF EXISTS `reg`;
+CREATE TABLE `reg` (
+  `user` varchar(45) NOT NULL,
+  `pass` varchar(45) NOT NULL,
+  `group` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `mob` varchar(45) NOT NULL,
+  `place` varchar(45) NOT NULL,
+  `status` varchar(45) NOT NULL,
+  `group_sign` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reg`
+--
+
+/*!40000 ALTER TABLE `reg` DISABLE KEYS */;
+INSERT INTO `reg` (`user`,`pass`,`group`,`email`,`mob`,`place`,`status`,`group_sign`) VALUES 
+ ('mani','mani','Group1','mani@gmail.com','958548564','Pondicherry','YES','z6NAMZ5/PeE='),
+ ('nadanapathy','123','Group2','nadanapathy.bluish@gmail.com','9876545343','pondicherry','YES','wA2KPuI89ks='),
+ ('pathy','123','Group2','nadanapathy.bluish@gmail.com','9874564165','pondicherry','YES','wA2KPuI89ks='),
+ ('nadana','123','Group2','nadanapathy.bluish@gmail.com','9874563210','pondicherry','YES','wA2KPuI89ks=');
+/*!40000 ALTER TABLE `reg` ENABLE KEYS */;
+
+
+--
+-- Definition of table `upload`
+--
+
+DROP TABLE IF EXISTS `upload`;
+CREATE TABLE `upload` (
+  `filename` varchar(45) NOT NULL,
+  `data` text NOT NULL,
+  `date` varchar(45) NOT NULL,
+  `key_` varchar(45) NOT NULL,
+  `gro` varchar(45) NOT NULL,
+  `user` varchar(45) NOT NULL,
+  `id` int(10) unsigned NOT NULL auto_increment,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `upload`
+--
+
+/*!40000 ALTER TABLE `upload` DISABLE KEYS */;
+INSERT INTO `upload` (`filename`,`data`,`date`,`key_`,`gro`,`user`,`id`) VALUES 
+ ('got.txt','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','2014/Oct/10 13:52:45','RhXJuxk1sqI=','Group1','mani',7),
+ ('readme.txt','qL47Dw99tF5xF7j0apw4ZBBnoA4rN4/aSJTp1x8jyW/Ffn8b5LfeosjxwFAGhZRL0UT536hq5UazPKu92HPumrFg/96ZoXFJBckohTW6J0yyiGA+dWmS7D6TIl3wWkZUMjfkgieUTjvyl2GZtdwO6DHJWq3FdvV0Wo7J8l1tynN5sp3cu2lr1cAcbOR7IstHrUA8jmbxr5QQ7BDqtmWTW2h3IIR933sezw5ouxH+zVh87CHcR6errBaVz+r6CiP+d0pAu8veNIM/lZIz16Qfb8xq8G9SgwbMTBCAzQOZbNuCfgOSkip5MA==','2014/Nov/06 11:08:26','o0nxR1fFy6049JEXW4a8ng==','Group2','nadanapathy',10);
+INSERT INTO `upload` (`filename`,`data`,`date`,`key_`,`gro`,`user`,`id`) VALUES 
+ ('readme.txt','IORaUepyPY9rmC//xTgMtnek5ezgmHEbNuiXPtu17VZdZ3B+cmOhzzrS1QwbCxO51E1P6+OCaaxQlDLbARc4iZWEKku3awGx1gIwCRm2H2exIJ7CD1vJOMSbyoO/mRuh5LKadOiFVHV2eZ0srBNUYDlt5TFzeP3bWVlqMGiZIT+AGwpZBWONxGnaE5tN+BGZ+jwv+mKGnbMk3v0C3L0FK0pxpZVPYZ9SHSWFEOsj+NWJJSpQl9fUJg==','2014/Nov/06 13:23:47','o0nxR1fFy6049JEXW4a8ng==','Group2','nadanapathy',12);
+/*!40000 ALTER TABLE `upload` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
